@@ -1,5 +1,5 @@
 
-name: create idp secrets
+name: apply idp
 
 on:
   workflow_dispatch:
@@ -14,10 +14,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: create and label secret
+    - name: apply idp
       run: |
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
-        kubectl create secret generic auth0-secret --from-literal="client-id"=${{secrets.AUTH0_CLIENT_ID}} --from-literal="client-secret"=${{secrets.AUTH0_CLIENT_SECRET}} -n kommander
-        kubectl label secret auth0-secret  kommanderType=connectorSecret -n kommander
+        kubectl apply -f ./idps/auth0-oidc-idp.yaml

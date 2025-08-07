@@ -1,0 +1,24 @@
+apiVersion: dex.mesosphere.io/v1alpha1
+kind: Connector
+metadata:
+  name: oidc-identity-provider
+  namespace: kommander
+spec:
+  displayName: auth0-oidc
+  enabled: true
+  oidc:
+    basicAuthUnsupported: false
+    clientSecretRef:
+      name: auth0-secret
+    getUserInfo: true
+    insecureEnableGroups: true
+    insecureSkipEmailVerified: false
+    issuer: https://dev-xsdnsgixepyubtf1.us.auth0.com/
+    redirectURI: https://10.38.41.135/dex/callback
+    scopes:
+    - openid
+    - profile
+    - email
+    userIDKey: email
+    userNameKey: email
+  type: oidc
