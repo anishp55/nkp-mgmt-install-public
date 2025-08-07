@@ -33,5 +33,6 @@ jobs:
     - name: get dashboard
       run: |
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
+        export PATH=$PATH:~/bin
         nkp get dashboard --kubeconfig ./work/$CLUSTER_NAME.conf
         rm -rf work
