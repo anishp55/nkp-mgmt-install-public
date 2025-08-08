@@ -17,4 +17,4 @@ jobs:
       run: |
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
         export PATH=$PATH:~/bin
-        nkp delete cluster -c jd-test --self-managed
+        nkp delete cluster -c $CLUSTER_NAME --self-managed
