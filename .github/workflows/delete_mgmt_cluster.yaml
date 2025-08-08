@@ -17,4 +17,6 @@ jobs:
       run: |
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
         export PATH=$PATH:~/bin
-        nkp delete cluster -c $CLUSTER_NAME --self-managed
+        export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
+        echo $CLUSTER_NAME
+        nkp delete cluster --cluster-name $CLUSTER_NAME --self-managed
