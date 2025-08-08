@@ -22,5 +22,6 @@ jobs:
         export PATH=$PATH:~/bin
         echo "${{secrets.INGRESS_CERT }}" > ingress.cert
         echo "${{ secrets.INGRESS_PEM }}" > ingress.pem
+        echo "${{secrets.INGRESS_CA}}" > ingress.ca
         echo "nkp version to install: $NKP_VERSION"
         echo "install timeout is set to: $TIMEOUT"
