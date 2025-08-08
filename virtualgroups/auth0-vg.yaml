@@ -1,0 +1,11 @@
+apiVersion: kommander.mesosphere.io/v1beta1
+kind: VirtualGroup
+metadata:
+  annotations:
+    kommander.mesosphere.io/display-name: auth0-oidc
+  name: auth0-oidc-vg
+spec:
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: anishp55@icloud.com
