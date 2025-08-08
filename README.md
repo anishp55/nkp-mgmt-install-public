@@ -6,7 +6,8 @@ this requires a self-hosted running with the following binaries installed
     docker or podman
 
 currently the gha runner application is installed in a users home directory, and systemctl is used to start it. <br>
-it is expected there is a ~/kubectl-configs directory to hold cluster kube-configs
+it is expected there is a ~/kubectl-configs directory to hold cluster kube-configs<br>
+this uses a lets encrypt cert
 
 you will need to define the following secrets
 ```
@@ -14,9 +15,9 @@ you will need to define the following secrets
     NUTANIX_PASSWORD
     REGISTRY_USER
     REGISTRY_PASSWORD
-    INGRESS_CA
-    INGRESS_CERT
-    INGRESS_PEM
+    INGRESS_CA (lets encrypt fullchain.pem)
+    INGRESS_CERT (lets encrypt fullchain.pem)
+    INGRESS_PEM (lets encrypt privkey.pem)
     NKP_LICENSE_KEY
     AUTH0_CLIENT_ID
     AUTH0_CLIENT_SECRET
