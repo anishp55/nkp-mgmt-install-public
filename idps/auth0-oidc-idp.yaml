@@ -14,7 +14,7 @@ spec:
     insecureEnableGroups: true
     insecureSkipEmailVerified: false
     issuer: https://dev-xsdnsgixepyubtf1.us.auth0.com/
-    redirectURI: https://10.38.41.135/dex/callback
+    redirectURI: https://jd-test.buildit.services/dex/callback
     scopes:
     - openid
     - profile
