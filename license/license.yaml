@@ -1,0 +1,8 @@
+apiVersion: kommander.mesosphere.io/v1beta1
+kind: License
+metadata:
+  name: nkp-ultimate-license
+  namespace: kommander
+spec:
+  licenseRef:
+    name: nkp-ultimate-license-secret
