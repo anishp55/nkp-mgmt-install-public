@@ -22,11 +22,11 @@ export NUTANIX_PORT=9440
 
 # Kubernetes VIP. Must be in the same subnet as the VMs
 # Check the table to find your IP
-export CONTROL_PLANE_ENDPOINT_IP=10.38.41.134
+export CONTROL_PLANE_ENDPOINT_IP=10.38.41.136
 
 # Load balancer IP range. Format: <first_ip>-<last_ip>
 # Check the table to find your IP
-export LB_IP_RANGE=10.38.41.135-10.38.41.138
+export LB_IP_RANGE=10.38.41.137-10.38.41.140
 
 # NKP Rocky image name
 # Do not change it
@@ -38,6 +38,7 @@ export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=PHX-POC269
 # NKP cluster subnet
 # Do not change it
 export NUTANIX_SUBNET_NAME=secondary
+export DOMAIN=buildit.services
 
 # Prism storage container
 # Do not change it

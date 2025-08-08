@@ -25,6 +25,8 @@ jobs:
         export NUTANIX_PASSWORD='${{ secrets.NUTANIX_PASSWORD }}'
         export REGISTRY_USER=${{ secrets.REGISTRY_USER}}
         export REGISTRY_PASSWORD=${{ secrets.REGISTRY_PASSWORD}}
+        export INGRESS_CERT=$${{secrets.INGRESS_CERT }}
+        export INGRESS_PEM=${{ secrets.INGRESS_PEM }}
         echo "nkp version to install: $NKP_VERSION"
         echo "install timeout is set to: $TIMEOUT"
         bash ../nkp-install.sh
