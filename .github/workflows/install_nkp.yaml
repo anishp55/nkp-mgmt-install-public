@@ -27,8 +27,10 @@ jobs:
         export REGISTRY_PASSWORD=${{ secrets.REGISTRY_PASSWORD}}
         export INGRESS_CERT="${{secrets.INGRESS_CERT }}"
         export INGRESS_PEM="${{ secrets.INGRESS_PEM }}"
+        export INGRESS_CA="${{secrets.INGRESS_CA}}"
         echo "${{secrets.INGRESS_CERT }}" > ingress.cert
         echo "${{ secrets.INGRESS_PEM }}" > ingress.pem
+        echo "${{secrets.INGRESS_CA}}" > ingress.ca
         echo "nkp version to install: $NKP_VERSION"
         echo "install timeout is set to: $TIMEOUT"
         bash ../nkp-install.sh
