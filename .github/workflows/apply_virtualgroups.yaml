@@ -1,5 +1,5 @@
 
-name: apply virtual groups
+name: 04 - apply virtual groups
 
 on:
   workflow_dispatch:

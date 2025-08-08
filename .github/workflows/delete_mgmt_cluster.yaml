@@ -1,5 +1,5 @@
 
-name: delete nkp mgmt cluster
+name: 99 - delete nkp mgmt cluster
 
 on:
   workflow_dispatch:
