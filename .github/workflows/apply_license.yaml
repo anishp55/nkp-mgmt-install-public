@@ -1,5 +1,5 @@
 
-name: 07 - apply license
+name: 06 - apply license
 
 on:
   workflow_dispatch:
