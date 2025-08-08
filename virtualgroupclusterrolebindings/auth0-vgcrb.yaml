@@ -1,0 +1,11 @@
+apiVersion: kommander.mesosphere.io/v1beta1
+kind: VirtualGroupClusterRoleBinding
+metadata:
+  name: clusterpolicy-auth0-oidc-vgcrb
+spec:
+  clusterRoleRef:
+    name: kommander-cluster-federated-admin
+  placement:
+    clusterSelector: {}
+  virtualGroupRef:
+    name: auth0-oidc-vg
