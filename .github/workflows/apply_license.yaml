@@ -19,6 +19,6 @@ jobs:
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
-        kubectl create secret generic nkp-ultimate-license-secret --from-literal=jwt=${{secrets.NKP_LICENSE_KEY}} -n kommander
+        kubectl create secret generic nkp-ultimate-license-secret --from-literal=nutanix-license-key=${{secrets.NKP_LICENSE_KEY}} -n kommander
         kubectl label secret nkp-ultimate-license-secret kommanderType=license -n kommander
         kubectl apply -f ./license/license.yaml
