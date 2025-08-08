@@ -16,7 +16,6 @@ jobs:
 
     - name: install nkp
       run: |
-        rm -rf work
         mkdir work
         cd work
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
@@ -25,9 +24,3 @@ jobs:
         echo "${{ secrets.INGRESS_PEM }}" > ingress.pem
         echo "nkp version to install: $NKP_VERSION"
         echo "install timeout is set to: $TIMEOUT"
-    - name: get dashboard
-      run: |
-        source ${GITHUB_WORKSPACE}/nkp-vars.sh
-        export PATH=$PATH:~/bin
-        nkp get dashboard --kubeconfig ./work/$CLUSTER_NAME.conf
-        rm -rf work
