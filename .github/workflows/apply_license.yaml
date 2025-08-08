@@ -14,10 +14,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: apply virtual groups
+    - name: apply license
       run: |
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
-        sed -i "LICENSE_KEY/${{secrets.NKP_LICENSE_KEY}}" ./license/license.yaml
+        sed -i "s/LICENSE_KEY/${{secrets.NKP_LICENSE_KEY}}/" ./license/license.yaml
         kubectl apply -f ./license/license.yaml
