@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  nkp_install:
+  test:
     runs-on: self-hosted
     defaults:
       run:

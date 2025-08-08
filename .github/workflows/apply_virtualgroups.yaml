@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  nkp_install:
+  apply_virtual_groups:
     runs-on: self-hosted
     defaults:
       run:

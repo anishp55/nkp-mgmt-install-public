@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  nkp_install:
+  apply_idp:
     runs-on: self-hosted
     defaults:
       run:

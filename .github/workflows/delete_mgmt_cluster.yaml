@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  nkp_install:
+  nkp_delete_mgmt_cluster:
     runs-on: self-hosted
     defaults:
       run:
