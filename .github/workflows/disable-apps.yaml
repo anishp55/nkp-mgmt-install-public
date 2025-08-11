@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  apply_idp:
+  disable_apps:
     runs-on: self-hosted
     defaults:
       run:
