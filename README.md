@@ -1,10 +1,11 @@
 # nkp-mgmt-install
 
-this requires a self-hosted running with the following binaries installed
+this requires a self-hosted runner with the following binaries installed
+```
     nkp
     kubectl
     docker or podman
-
+```
 currently the gha runner application is installed in a users home directory, and systemctl is used to start it. <br>
 it is expected there is a ~/kubectl-configs directory to hold cluster kube-configs<br>
 this uses a lets encrypt cert
