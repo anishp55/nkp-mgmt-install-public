@@ -1,3 +1,4 @@
 ai-navigator-app,ai-navigator-app-0.2.10,disable
-kubecost,kubecost-2.5.2,enable
+kubecost,kubecost-2.5.2,disable
 chartmuseum,chartmuseum-3.10.2,enable
+external-dns,external-dns-7.5.6,enable
