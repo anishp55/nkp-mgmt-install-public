@@ -3,7 +3,6 @@ centralized-grafana,centralized-grafana-69.1.2,disable
 grafana-logging,grafana-logging-8.9.0,disable
 karma,karma-2.0.6,disable
 karma-traefik,karma-traefik-0.0.2,disable
-kube-oidc-proxy,kube-oidc-proxy-0.3.5,disable
 kube-prometheus-stack,kube-prometheus-stack-69.1.3,disable
 kubecost,kubecost-2.5.2,disable
 kubernetes-dashboard,kubernetes-dashboard-7.10.3,disable
@@ -31,3 +30,4 @@ traefik,traefik-34.1.0,required
 traefik-forward-auth-mgmt,traefik-forward-auth-mgmt-0.3.14,required
 dex,dex-2.14.1,required
 dex-k8s-authenticator,dex-k8s-authenticator-1.4.5,required
+kube-oidc-proxy,kube-oidc-proxy-0.3.5,required
