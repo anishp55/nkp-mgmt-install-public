@@ -5,7 +5,7 @@ cloudnative-pg,cloudnative-pg-0.23.0,disable
 cosi-driver-nutanix,cosi-driver-nutanix-0.4.0,disable
 fluent-bit,fluent-bit-0.48.5,disable
 grafana-logging,grafana-logging-8.9.0,enable
-grafana-loki,grafana-loki-0.79.5,enable
+grafana-loki,grafana-loki-0.79.5,disable
 harbor,harbor-1.16.2,disable
 istio,istio-1.23.3,disable
 jaeger,jaeger-2.57.0,disable
