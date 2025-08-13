@@ -1,0 +1,19 @@
+
+name: 00 - podman login
+
+on:
+  workflow_dispatch:
+
+jobs:
+  registry_login:
+    runs-on: self-hosted
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: login to registry
+      run: |
+        podman login --username ${{ secrets.REGISTRY_USER}} --password ${{ secrets.REGISTRY_PASSWORD}} docker.io
