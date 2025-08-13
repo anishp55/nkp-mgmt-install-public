@@ -31,6 +31,7 @@ the workflows are currently set to manual <br>
 you should run the following
 ```
 01 - install nkp (this expects certs for hostname stuff, if you don't want this remove it from the install script)
-06 - apply license
 ```
-steps 02 to 05 are optional
+steps 02 to 07 are optional
+
+this will deploy a nkp mgmt cluster with a starter license.  if you have a license key, you can run set 6 to apply the license
