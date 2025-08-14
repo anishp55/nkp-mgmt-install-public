@@ -22,11 +22,11 @@ export NUTANIX_PORT=9440
 
 # Kubernetes VIP. Must be in the same subnet as the VMs
 # Check the table to find your IP
-export CONTROL_PLANE_ENDPOINT_IP=10.38.41.136
+export CONTROL_PLANE_ENDPOINT_IP=10.38.41.151
 
 # Load balancer IP range. Format: <first_ip>-<last_ip>
 # Check the table to find your IP
-export LB_IP_RANGE=10.38.41.137-10.38.41.140
+export LB_IP_RANGE=10.38.41.152-10.38.41.153
 
 # NKP Rocky image name
 # Do not change it
