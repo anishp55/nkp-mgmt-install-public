@@ -20,4 +20,4 @@ jobs:
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
         kubectl apply -f ./app-overrides/external-dns-cm.yaml
-        kubectl patch appdeployment -n kommander external-dns --type merge -p '{"spec":{"configOverrides":{"name": "external-dns-config-overrides"}}}’
+        kubectl patch appdeployment -n kommander external-dns --type merge -p '{"spec":{"configOverrides":{"name": "external-dns-config-overrides"}}}'
