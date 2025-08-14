@@ -7,13 +7,5 @@ data:
         secretName: cloudflare-api-key
 kind: ConfigMap
 metadata:
-  labels:
-    kommander.d2iq.io/managed-by-kind: AppDeployment
   name: external-dns-config-overrides
   namespace: kommander
-  ownerReferences:
-  - apiVersion: apps.kommander.d2iq.io/v1alpha3
-    kind: AppDeployment
-    name: external-dns
-
-
