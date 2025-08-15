@@ -1,12 +1,12 @@
 ai-navigator-app,ai-navigator-app-0.2.10,disable
 centralized-grafana,centralized-grafana-69.1.2,enable
 cert-manager,cert-manager-1.16.2,enable
-cloudnative-pg,cloudnative-pg-0.23.0,disable
+cloudnative-pg,cloudnative-pg-0.23.0,enable
 cosi-driver-nutanix,cosi-driver-nutanix-0.4.0,disable
 fluent-bit,fluent-bit-0.48.5,disable
 grafana-logging,grafana-logging-8.9.0,enable
 grafana-loki,grafana-loki-0.79.5,enable
-harbor,harbor-1.16.2,disable
+harbor,harbor-1.16.2,enable
 istio,istio-1.23.3,disable
 jaeger,jaeger-2.57.0,disable
 karma,karma-2.0.6,enable
