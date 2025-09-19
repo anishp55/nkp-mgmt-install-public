@@ -1,5 +1,5 @@
 
-name: 01 - install nkp - no certs
+name: 01 - install nkp - no certs, internal reg
 
 on:
   workflow_dispatch:
