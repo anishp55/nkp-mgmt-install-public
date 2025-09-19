@@ -19,4 +19,4 @@ jobs:
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
         echo $CLUSTER_NAME
-        nkp delete cluster --cluster-name $CLUSTER_NAME --self-managed
+        nkp-$NKP_VERSION delete cluster --cluster-name $CLUSTER_NAME --self-managed
