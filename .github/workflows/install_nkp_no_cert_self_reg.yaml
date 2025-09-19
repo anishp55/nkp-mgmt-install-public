@@ -1,0 +1,44 @@
+
+name: 01 - install nkp - no certs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  nkp_install:
+    runs-on: self-hosted
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: install nkp - no certs
+      run: |
+        rm -rf work
+        mkdir work
+        cd work
+        source ${GITHUB_WORKSPACE}/nkp-vars.sh
+        export PATH=$PATH:~/bin
+        export NUTANIX_USER=${{ secrets.NUTANIX_USER }}
+        export NUTANIX_PASSWORD='${{ secrets.NUTANIX_PASSWORD }}'
+        export REGISTRY_USER=${{ secrets.REGISTRY_USER}}
+        export REGISTRY_PASSWORD=${{ secrets.REGISTRY_PASSWORD}}
+        export INGRESS_CERT="${{secrets.INGRESS_CERT }}"
+        export INGRESS_PEM="${{ secrets.INGRESS_PEM }}"
+        export INGRESS_CA="${{secrets.INGRESS_CA}}"
+        echo "${{secrets.INGRESS_CERT }}" > ingress.cert
+        echo "${{ secrets.INGRESS_PEM }}" > ingress.pem
+        echo "${{secrets.INGRESS_CA}}" > ingress.ca
+        echo "nkp version to install: $NKP_VERSION"
+        echo "install timeout is set to: $TIMEOUT"
+        bash ../nkp-install-self-reg.sh
+        cp ./$CLUSTER_NAME.conf ~/kubectl-configs
+        cd ../
+    - name: get dashboard
+      run: |
+        source ${GITHUB_WORKSPACE}/nkp-vars.sh
+        export PATH=$PATH:~/bin
+        nkp get dashboard --kubeconfig ./work/$CLUSTER_NAME.conf
+        rm -rf work
