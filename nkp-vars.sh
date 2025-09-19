@@ -2,7 +2,7 @@
 
 # NKP version to install
 # Do not change it
-export NKP_VERSION=2.16.0
+export NKP_VERSION=2.15.1
 
 # NKP cluster name.
 # When using NKP Pro/Ultimate, this name is used to generate the license key
@@ -30,7 +30,7 @@ export LB_IP_RANGE=10.54.92.17-10.54.92.19
 
 # NKP Rocky image name
 # Do not change it
-export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-ubuntu-22.04-release-cis-1.33.2-20250811224527.qcow2
+export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-rocky-9.5-release-1.32.3-20250430150550.qcow2
 
 # Prism Element cluster name - Ex: PHX-POC207
 export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=DM3-POC141
