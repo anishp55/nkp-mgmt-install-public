@@ -6,7 +6,7 @@ export NKP_VERSION=2.16.1
 
 # NKP cluster name.
 # When using NKP Pro/Ultimate, this name is used to generate the license key
-export CLUSTER_NAME=jd-test
+export CLUSTER_NAME=rccl-example
 
 # Prism Central username
 #set as env var through GHA secrets
