@@ -45,5 +45,5 @@ export DOMAIN=buildit.services
 export TIMEOUT=60m
 export NUTANIX_STORAGE_CONTAINER_NAME=SelfServiceContainer
 export REGISTRY_MIRROR_URL=registry.nutanixdemo.com/docker.io
-export IMAGES=/home/nutanix/assets/nkp-v2.16.0/container-images/kommander-image-bundle-v2.16.0.tar,
-export IMAGES+=/home/nutanix/assets/nkp-v2.16.0/container-images/konvoy-image-bundle-v2.16.0.tar
+export IMAGES=/home/nutanix/assets/nkp-v2.16.1/container-images/kommander-image-bundle-v2.16.1.tar,
+export IMAGES+=/home/nutanix/assets/nkp-v2.16.1/container-images/konvoy-image-bundle-v2.16.1.tar
