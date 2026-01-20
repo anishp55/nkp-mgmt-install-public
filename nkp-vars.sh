@@ -33,7 +33,7 @@ export LB_IP_RANGE=10.8.50.141-10.42.73.144
 export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-ubuntu-22.04-release-cis-1.33.5-20251108010758.qcow2
 
 # Prism Element cluster name - Ex: PHX-POC207
-export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=PHX-POC073
+export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=RNO-SPOC007-3
 
 # NKP cluster subnet
 # Do not change it
