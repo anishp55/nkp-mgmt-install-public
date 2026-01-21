@@ -17,7 +17,6 @@ jobs:
     - name: install nkp - no certs
       continue-on-error: true 
       run: |
-        set +e
         rm -rf work
         mkdir work
         cd work
@@ -36,14 +35,6 @@ jobs:
         echo "nkp version to install: $NKP_VERSION"
         echo "install timeout is set to: $TIMEOUT"
         bash ../nkp-install-self-reg.sh
-        exit_code=$?    
-        if [ "$exit_code" -ne 0 ] && [ "$exit_code" -ne 125 ] ; then
-          echo "::error::Unexpected exit code $exit_code. Failing job."
-          exit "$exit_code" # Only exit with failure for non-approved codes
-        else
-          echo "Exit code $exit_code was expected/allowed. Continuing..."
-          exit 0 # Exit with success (0) to continue the workflow
-        fi        
         cp ./$CLUSTER_NAME.conf ~/kubectl-configs
         cd ../
     - name: get dashboard
