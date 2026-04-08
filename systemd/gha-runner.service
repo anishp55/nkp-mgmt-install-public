@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=5
 User=nutanix
-ExecStart=/home/nutanix/actions-runner/run.sh
+ExecStart=%h/actions-runner/run.sh
 
 [Install]
 WantedBy=multi-user.target
