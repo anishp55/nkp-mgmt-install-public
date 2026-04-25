@@ -45,3 +45,9 @@ jobs:
         export NUTANIX_OBJECTS_HOST="${{ inputs.NUTANIX_OBJECTS_HOST }}"
         cat ./appdeployments/velero/velero-cm.yaml | envsubst | kubectl apply -f -
 
+    - name: create velero appdeployment
+      run: |
+        source ${GITHUB_WORKSPACE}/nkp-vars.sh
+        export PATH=$PATH:~/bin
+        export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
+        nkp create appdeployment velero --app velero-11.1.1 -c velero-overrides -w kommander-workspace  -oyaml --dry-run | kubectl apply -f -
