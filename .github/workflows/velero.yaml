@@ -77,4 +77,4 @@ jobs:
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
-        nkp create appdeployment velero --app $(kubectl get clusterapp -A -o json | jq -r '.items[] | select(.spec.appId? == "grafana-loki") | .metadata.name') -c grafana-loki-overrides -w kommander-workspace  -oyaml --dry-run | kubectl apply -f -
+        nkp create appdeployment grafana-loki --app $(kubectl get clusterapp -A -o json | jq -r '.items[] | select(.spec.appId? == "grafana-loki") | .metadata.name') -c grafana-loki-overrides -w kommander-workspace  -oyaml --dry-run | kubectl apply -f -
