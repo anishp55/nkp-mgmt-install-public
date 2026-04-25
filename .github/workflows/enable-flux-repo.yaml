@@ -1,0 +1,33 @@
+name: 06a - apply flux repo
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  kommander:
+    runs-on: self-hosted
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: create project for flux
+      run: |
+        export PATH=$PATH:~/bin
+        export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
+        kubectl apply -f ./flux-project/00-infra-flux-validation-project.yaml
+
+    - name: apply roles for service account
+      run: |
+        export PATH=$PATH:~/bin
+        export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
+        kubectl apply -f ./flux-project/01-nkp-infra-manager.yaml
+
+    - name: apply git repo
+      run: |
+        export PATH=$PATH:~/bin
+        export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
+        kubectl apply -f ./flux-project/02-flux-gitops-repo.yaml
