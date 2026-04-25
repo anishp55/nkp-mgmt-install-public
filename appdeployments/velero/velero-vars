@@ -1,0 +1,6 @@
+export BUCKET=velero
+export BSL_NAME=velero
+export NUTANIX_OBJECTS_PORT=443
+export NUTANIX_OBJECTS_SECRET=nutanix-object-credentials
+export AWS_PROFILE=velero
+export SECRET_KEY_NAME=aws
