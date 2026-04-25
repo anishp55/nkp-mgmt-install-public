@@ -45,6 +45,12 @@ jobs:
         export NUTANIX_OBJECTS_HOST="${{ inputs.NUTANIX_OBJECTS_HOST }}"
         cat ./appdeployments/velero/velero-cm.yaml | envsubst | kubectl apply --server-side -f -
 
+    - name: velero appdeployment
+      run: |
+        source ${GITHUB_WORKSPACE}/nkp-vars.sh
+        export PATH=$PATH:~/bin
+        export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
+        nkp create appdeployment velero --app $(kubectl get clusterapp -A -o json | jq -r '.items[] | select(.spec.appId? == "velero") | .metadata.name') -c velero-overrides -w kommander-workspace  -oyaml --dry-run | kubectl apply -f -
 
     - name: create loki secret
       run: |
@@ -66,9 +72,9 @@ jobs:
         cat ./appdeployments/loki/loki-cm.yaml | envsubst | kubectl apply --server-side -f -
 
 
-    # - name: create velero appdeployment
-    #   run: |
-    #     source ${GITHUB_WORKSPACE}/nkp-vars.sh
-    #     export PATH=$PATH:~/bin
-    #     export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
-    #     nkp create appdeployment velero --app velero-11.1.1 -c velero-overrides -w kommander-workspace  -oyaml --dry-run | kubectl apply -f -
+    - name: grafana-loki appdeployment
+      run: |
+        source ${GITHUB_WORKSPACE}/nkp-vars.sh
+        export PATH=$PATH:~/bin
+        export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
+        nkp create appdeployment velero --app $(kubectl get clusterapp -A -o json | jq -r '.items[] | select(.spec.appId? == "grafana-loki") | .metadata.name') -c grafana-loki-overrides -w kommander-workspace  -oyaml --dry-run | kubectl apply -f -
