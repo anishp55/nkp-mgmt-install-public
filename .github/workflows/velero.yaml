@@ -63,9 +63,6 @@ jobs:
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
         source ./appdeployments/loki/loki-vars
         export NUTANIX_OBJECTS_HOST="${{ inputs.NUTANIX_OBJECTS_HOST }}"
-        echo "DEBUG: BUCKET=$BUCKET"
-        echo "DEBUG: NUTANIX_OBJECTS_HOST=$NUTANIX_OBJECTS_HOST"
-        cat ./appdeployments/loki/loki-cm.yaml | envsubst
         cat ./appdeployments/loki/loki-cm.yaml | envsubst | kubectl apply --server-side -f -
 
 
