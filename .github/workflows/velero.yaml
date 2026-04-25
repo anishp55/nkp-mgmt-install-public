@@ -30,9 +30,9 @@ jobs:
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
         source ./appdeployments/velero/velero-vars
-        export PROFILEDATA=$(echo "[${AWS_PROFILE}] \n
+        export PROFILEDATA=$(echo '[${AWS_PROFILE}] \n
         aws_access_key_id=${{ inputs.NUTANIX_OBJECTS_ACCESS_KEY }} \n
-        aws_secret_access_key=${{ inputs.NUTANIX_OBJECTS_SECRET_KEY }}" | base64 -w0)
+        aws_secret_access_key=${{ inputs.NUTANIX_OBJECTS_SECRET_KEY }}' | base64 -w0)
         cat ./appdeployments/velero/velero-secret.yaml | envsubst | kubectl apply -f -
 
     - name: apply velero configmap
