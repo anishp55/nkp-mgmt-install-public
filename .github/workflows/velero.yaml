@@ -56,6 +56,15 @@ jobs:
         export NUTANIX_OBJECTS_SECRET_KEY=$( echo "${{ inputs.NUTANIX_OBJECTS_SECRET_KEY }}" | tr -d '\n' |base64 -w0 )
         cat ./appdeployments/loki/loki-secret.yaml | envsubst | kubectl apply --server-side -f -
 
+    - name: apply loki configmap
+      run: |
+        source ${GITHUB_WORKSPACE}/nkp-vars.sh
+        export PATH=$PATH:~/bin
+        export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
+        source ./appdeployments/loki/loki-vars
+        export NUTANIX_OBJECTS_HOST="${{ inputs.NUTANIX_OBJECTS_HOST }}"
+        cat ./appdeployments/loki/loki-cm.yaml | envsubst | kubectl apply --server-side -f -
+
 
     # - name: create velero appdeployment
     #   run: |
