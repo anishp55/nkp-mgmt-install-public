@@ -1,4 +1,4 @@
-name: 05b - velero with nutanix objects
+name: 05b - nutanix objects for velero and loki
 
 on:
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
           "${AWS_PROFILE}" \
           "${{ inputs.NUTANIX_OBJECTS_ACCESS_KEY }}" \
           "${{ inputs.NUTANIX_OBJECTS_SECRET_KEY }}" | base64 -w0)
-        cat ./appdeployments/velero/velero-secret.yaml | envsubst | kubectl apply -f -
+        cat ./appdeployments/velero/velero-secret.yaml | envsubst | kubectl apply --server-side -f -
 
     - name: apply velero configmap
       run: |
@@ -43,11 +43,23 @@ jobs:
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
         source ./appdeployments/velero/velero-vars
         export NUTANIX_OBJECTS_HOST="${{ inputs.NUTANIX_OBJECTS_HOST }}"
-        cat ./appdeployments/velero/velero-cm.yaml | envsubst | kubectl apply -f -
+        cat ./appdeployments/velero/velero-cm.yaml | envsubst | kubectl apply --server-side -f -
 
-    - name: create velero appdeployment
+
+    - name: create loki secret
       run: |
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
-        nkp create appdeployment velero --app velero-11.1.1 -c velero-overrides -w kommander-workspace  -oyaml --dry-run | kubectl apply -f -
+        source ./appdeployments/loki/loki-vars
+        export NUTANIX_OBJECTS_ACCESS_KEY=$( echo "${{ inputs.NUTANIX_OBJECTS_ACCESS_KEY }}" | tr -d '\n' |base64 -w0 )
+        export NUTANIX_OBJECTS_SECRET_KEY=$( echo "${{ inputs.NUTANIX_OBJECTS_SECRET_KEY }}" | tr -d '\n' |base64 -w0 )
+        cat ./appdeployments/loki/loki-secret.yaml | envsubst | kubectl apply --server-side -f -
+
+
+    # - name: create velero appdeployment
+    #   run: |
+    #     source ${GITHUB_WORKSPACE}/nkp-vars.sh
+    #     export PATH=$PATH:~/bin
+    #     export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
+    #     nkp create appdeployment velero --app velero-11.1.1 -c velero-overrides -w kommander-workspace  -oyaml --dry-run | kubectl apply -f -
