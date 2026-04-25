@@ -19,4 +19,5 @@ jobs:
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
-        kubectl apply -f ./idps/auth0-oidc-idp.yaml
+        export MGMT_HOSTNAME=$( kubectl get kommanderclusters.kommander.mesosphere.io  -n kommander host-cluster -oyaml | yq .spec.ingress.hostname )
+        cat ./idps/auth0-oidc-idp.yaml | envsubst | kubectl apply -f -
