@@ -33,7 +33,7 @@ on:
 jobs:
   install_nkp:
     name: 01 - install nkp
-    uses: ./.github/workflows/install_nkp.yaml
+    uses: ./.github/workflows/install_nkp_no_cert_self_reg.yaml
     secrets: inherit
 
   create_secrets:
