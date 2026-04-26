@@ -3,6 +3,7 @@ name: 03 - apply idp
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   apply_idp:

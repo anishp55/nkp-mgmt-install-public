@@ -13,6 +13,20 @@ on:
       NUTANIX_OBJECTS_SECRET_KEY:
         description: 'Nutanix Objects Secret Key'
         required: true
+  workflow_call:
+    inputs:
+      NUTANIX_OBJECTS_HOST:
+        description: 'Nutanix Objects Host (e.g., objects.example.com)'
+        required: true
+        type: string
+      NUTANIX_OBJECTS_ACCESS_KEY:
+        description: 'Nutanix Objects Acess Key'
+        required: true
+        type: string
+      NUTANIX_OBJECTS_SECRET_KEY:
+        description: 'Nutanix Objects Secret Key'
+        required: true
+        type: string
 
 jobs:
   velero:

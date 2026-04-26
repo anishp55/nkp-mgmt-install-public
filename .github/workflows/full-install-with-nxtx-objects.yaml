@@ -1,0 +1,95 @@
+name: 00 - full install w/ nxtx object.
+
+on:
+  workflow_dispatch:
+    inputs:
+      update_kommander:
+        description: "Run optional 05a Kommander update"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+      enable_velero_loki:
+        description: "Run optional 05b Velero and Loki object-storage setup"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+      NUTANIX_OBJECTS_HOST:
+        description: "Nutanix Objects Host, required when enable_velero_loki=true"
+        required: false
+        default: "objects.nutanix.local"
+      NUTANIX_OBJECTS_ACCESS_KEY:
+        description: "Nutanix Objects Access Key, required when enable_velero_loki=true"
+        required: false
+      NUTANIX_OBJECTS_SECRET_KEY:
+        description: "Nutanix Objects Secret Key, required when enable_velero_loki=true"
+        required: false
+
+jobs:
+  install_nkp:
+    name: 01 - install nkp
+    uses: ./.github/workflows/install_nkp.yaml
+    secrets: inherit
+
+  create_secrets:
+    name: 02 - create idp secrets
+    needs: install_nkp
+    uses: ./.github/workflows/create_secrets.yaml
+    secrets: inherit
+
+  apply_idp:
+    name: 03 - apply idp
+    needs: create_secrets
+    uses: ./.github/workflows/apply_idp.yaml
+    secrets: inherit
+
+  apply_virtualgroups:
+    name: 04 - apply virtual groups
+    needs: apply_idp
+    uses: ./.github/workflows/apply_virtualgroups.yaml
+    secrets: inherit
+
+  apply_virtualgroups_crb:
+    name: 05 - apply virtual groups crb
+    needs: apply_virtualgroups
+    uses: ./.github/workflows/apply_virtualgroups_crb.yaml
+    secrets: inherit
+
+  update_kommander:
+    name: 05a - update kommander
+    needs: apply_virtualgroups_crb
+    if: ${{ inputs.update_kommander == 'true' }}
+    uses: ./.github/workflows/kommander.yaml
+    secrets: inherit
+
+  velero_loki:
+    name: 05b - nutanix objects for velero and loki
+    needs: apply_virtualgroups_crb
+    if: ${{ inputs.enable_velero_loki == 'true' }}
+    uses: ./.github/workflows/velero.yaml
+    with:
+      NUTANIX_OBJECTS_HOST: ${{ inputs.NUTANIX_OBJECTS_HOST }}
+      NUTANIX_OBJECTS_ACCESS_KEY: ${{ inputs.NUTANIX_OBJECTS_ACCESS_KEY }}
+      NUTANIX_OBJECTS_SECRET_KEY: ${{ inputs.NUTANIX_OBJECTS_SECRET_KEY }}
+    secrets: inherit
+
+  apply_license:
+    name: 06 - apply license
+    needs:
+      - apply_virtualgroups_crb
+      - update_kommander
+      - velero_loki
+    if: ${{ always() && needs.apply_virtualgroups_crb.result == 'success' && (needs.update_kommander.result == 'success' || needs.update_kommander.result == 'skipped') && (needs.velero_loki.result == 'success' || needs.velero_loki.result == 'skipped') }}
+    uses: ./.github/workflows/apply_license.yaml
+    secrets: inherit
+
+  apply_flux_repo:
+    name: 06a - apply flux repo
+    needs: apply_license
+    uses: ./.github/workflows/enable-flux-repo.yaml
+    secrets: inherit

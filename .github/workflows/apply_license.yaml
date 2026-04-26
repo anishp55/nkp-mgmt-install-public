@@ -3,6 +3,7 @@ name: 06 - apply license
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   apply_license:
