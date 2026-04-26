@@ -42,7 +42,7 @@ export DOMAIN=buildit.services
 
 # Prism storage container
 # Do not change it
-export TIMEOUT=60m
+export TIMEOUT=90m
 export NUTANIX_STORAGE_CONTAINER_NAME=SelfServiceContainer
 export REGISTRY_MIRROR_URL=registry.nutanixdemo.com/docker.io
 IMAGES=${HOME}/assets/nkp-v${NKP_VERSION}/container-images/kommander-image-bundle-v${NKP_VERSION}.tar,
