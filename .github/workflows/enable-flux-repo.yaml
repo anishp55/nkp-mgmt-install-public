@@ -2,6 +2,7 @@ name: 06a - apply flux repo
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 
 jobs:

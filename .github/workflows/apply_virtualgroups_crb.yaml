@@ -3,6 +3,7 @@ name: 05 - apply virtual groups crb
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   apply_virtual_groups_crb:
