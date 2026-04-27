@@ -12,7 +12,7 @@ jobs:
         working-directory: ./
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@main
 
     - name: apply & patch external dns configMap
       run: |

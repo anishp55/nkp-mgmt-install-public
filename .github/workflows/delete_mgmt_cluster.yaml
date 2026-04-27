@@ -12,7 +12,7 @@ jobs:
         working-directory: ./
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@main
     - name: delete nkp mgmt cluster
       run: |
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
