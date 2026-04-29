@@ -3,10 +3,10 @@
 # NKP version to install
 # Do not change it
 export NKP_VERSION=2.17.1
-export BASE_ADDRESS=10.55.91
+export BASE_ADDRESS=10.38.241
 # NKP cluster name.
 # When using NKP Pro/Ultimate, this name is used to generate the license key
-export CLUSTER_NAME=rccl-example
+# export CLUSTER_NAME=rccl-example
 
 # Prism Central username
 #set as env var through GHA secrets
@@ -33,7 +33,7 @@ export LB_IP_RANGE=${BASE_ADDRESS}.135-${BASE_ADDRESS}.136
 export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-rocky-9.7-release-cis-1.34.3-20260316170119.qcow2
 
 # Prism Element cluster name - Ex: PHX-POC207
-export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=DM3-POC091
+export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=PHX-POC241
 
 # NKP cluster subnet
 # Do not change it
