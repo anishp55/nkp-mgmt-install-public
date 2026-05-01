@@ -14,10 +14,10 @@ kustomization:
   sourceRef:
     apiVersion: source.toolkit.fluxcd.io/v1
     kind: GitRepository
-    name: flux
+    name: workspaces
     namespace: infra-flux-validation
   targetNamespace: infra-flux-validation
 metadata:
   generation: 1
-  name: flux
+  name: workspaces
   namespace: infra-flux-validation
