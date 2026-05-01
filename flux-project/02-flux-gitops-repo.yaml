@@ -8,7 +8,7 @@ gitRepository:
 kind: GitopsRepository
 kustomization:
   force: false
-  interval: 6h0m0s
+  interval: 5m0s
   path: ./gitops
   prune: true
   sourceRef:
