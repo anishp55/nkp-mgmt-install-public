@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-values
+  namespace: infra-flux-validation
+data:
+  IP_START: ${BASE_ADDRESS}
+  PRISM_ELEMENT: ${NUTANIX_PRISM_ELEMENT_CLUSTER_NAME}
+  NETWORK_NAME: ${NUTANIX_SUBNET_NAME}
+  OS_IMAGE_NAME: ${NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME}
