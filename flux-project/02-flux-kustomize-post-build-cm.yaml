@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: cluster-values
   namespace: infra-flux-validation
+  labels:
+    reconcile.fluxcd.io/watch: "Enabled"
 data:
   IP_START: ${BASE_ADDRESS}
   PRISM_ELEMENT: ${NUTANIX_PRISM_ELEMENT_CLUSTER_NAME}
