@@ -29,6 +29,13 @@ jobs:
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
         kubectl apply -f ./flux-project/01-nkp-infra-manager.yaml
 
+    - name: apply config map for flux
+      run: |
+        source ${GITHUB_WORKSPACE}/nkp-vars.sh
+        export PATH=$PATH:~/bin
+        export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
+        kubectl apply -f ./flux-project/02-flux-kustomize-post-build-cm.yaml
+
     - name: apply git repo
       run: |
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
