@@ -12,8 +12,13 @@ rules:
     resources:
       - "workspaces"
       - "projects"
-      - "appdeployments"
       - "kommanderclusters"
+    verbs: ["*"]
+
+  - apiGroups:
+      - "apps.kommander.d2iq.io"
+    resources:
+      - "appdeployments"
     verbs: ["*"]
 
   # Cluster API (CAPI) - For deploying the actual clusters
@@ -38,6 +43,9 @@ rules:
   # Workspace-scoped identities and RBAC needed by ESO SecretStores
   - apiGroups: [""]
     resources: ["serviceaccounts"]
+    verbs: ["*"]
+  - apiGroups: [""]
+    resources: ["configmaps"]
     verbs: ["*"]
   - apiGroups: ["rbac.authorization.k8s.io"]
     resources: ["roles", "rolebindings"]
