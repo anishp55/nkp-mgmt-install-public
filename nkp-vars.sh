@@ -8,7 +8,7 @@ export BASE_ADDRESS=10.8.14
 export NUTANIX_STORAGE_CONTAINER_NAME=SelfServiceContainer
 # NKP Rocky image name
 # Do not change it
-export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-rocky-9.7-release-cis-1.34.3-20260316170119.qcow2
+export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-rocky-9.7-release-cis-1.34.3-20260504011927.qcow2
 # Prism Element cluster name - Ex: PHX-POC207
 export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=RNO-POC003
 # NKP cluster subnet
