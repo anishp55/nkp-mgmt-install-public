@@ -34,7 +34,7 @@ jobs:
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
-        kubectl apply -f ./flux-project/02-flux-kustomize-post-build-cm.yaml
+        cat ./flux-project/02-flux-kustomize-post-build-cm.yaml | envsubst | kubectl apply -f -
 
     - name: apply git repo
       run: |
