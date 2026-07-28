@@ -3,13 +3,13 @@
 # NKP version to install
 export NKP_VERSION=2.17.1
 #base address for cluster. This is used to generate the IP addresses for the cluster nodes and load balancer
-export BASE_ADDRESS=10.55.59
+export BASE_ADDRESS=10.55.86
 # Prism storage container
 export NUTANIX_STORAGE_CONTAINER_NAME=SelfServiceContainer
 # NKP image name
 # Do not change it
 export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-ubuntu-24.04-release-cis-1.34.3-20260504025514.qcow2
-# Prism Element cluster name - Ex: PHX-POC207
+# Prism Element cluster name - Ex: DM3-POC086
 export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=DM3-POC059
 # NKP cluster subnet
 export NUTANIX_SUBNET_NAME=secondary-${NUTANIX_PRISM_ELEMENT_CLUSTER_NAME}
@@ -17,7 +17,7 @@ export NUTANIX_SUBNET_NAME=secondary-${NUTANIX_PRISM_ELEMENT_CLUSTER_NAME}
 # NKP cluster name.
 # When using NKP Pro/Ultimate, this name is used to generate the license key
 export CLUSTER_NAME=akp
-export NUTANIX_ENDPOINT=10.55.47.7
+export NUTANIX_ENDPOINT=${BASE_ADDRESS}.7
 export NUTANIX_PORT=9440
 export CONTROL_PLANE_ENDPOINT_IP=${BASE_ADDRESS}.134
 export LB_IP_RANGE=${BASE_ADDRESS}.135-${BASE_ADDRESS}.136
