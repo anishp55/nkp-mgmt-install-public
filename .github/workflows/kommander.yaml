@@ -27,4 +27,4 @@ jobs:
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
-        nkp create appdeployment kommander --app kommander-0.17.1 -c kommander-overrides -w kommander-workspace --dry-run -oyaml | kubectl apply -f -
+        nkp-$NKP_VERSION create appdeployment kommander --app kommander-0.17.1 -c kommander-overrides -w kommander-workspace --dry-run -oyaml | kubectl apply -f -
