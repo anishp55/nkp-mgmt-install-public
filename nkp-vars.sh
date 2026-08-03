@@ -3,26 +3,26 @@
 # NKP version to install
 export NKP_VERSION=2.17.1
 #base address for cluster. This is used to generate the IP addresses for the cluster nodes and load balancer
-export BASE_ADDRESS=10.55.86
+export BASE_ADDRESS=10.8.21
 # Prism storage container
 export NUTANIX_STORAGE_CONTAINER_NAME=SelfServiceContainer
 # NKP image name
 # Do not change it
 export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-ubuntu-24.04-release-cis-1.34.3-20260504025514.qcow2
 # Prism Element cluster name - Ex: DM3-POC086
-export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=DM3-POC086
+export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=RNO-POC010
 # NKP cluster subnet
 export NUTANIX_SUBNET_NAME=secondary-${NUTANIX_PRISM_ELEMENT_CLUSTER_NAME}
 
 # NKP cluster name.
 # When using NKP Pro/Ultimate, this name is used to generate the license key
-export CLUSTER_NAME=akp
+export CLUSTER_NAME=nkp
 export NUTANIX_ENDPOINT=${BASE_ADDRESS}.7
 export NUTANIX_PORT=9440
 export CONTROL_PLANE_ENDPOINT_IP=${BASE_ADDRESS}.134
 export LB_IP_RANGE=${BASE_ADDRESS}.135-${BASE_ADDRESS}.136
 export DOMAIN=buildit.services
-export TIMEOUT=120m
+export TIMEOUT=240m
 export REGISTRY_MIRROR_URL=registry.nutanixdemo.com/docker.io
 IMAGES=${HOME}/assets/nkp-v${NKP_VERSION}/container-images/kommander-image-bundle-v${NKP_VERSION}.tar,
 IMAGES+=${HOME}/assets/nkp-v${NKP_VERSION}/container-images/konvoy-image-bundle-v${NKP_VERSION}.tar
