@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: kommander
+  namespace: ${NAMESPACE}
   name: velero-overrides
 data:
   values.yaml: |
