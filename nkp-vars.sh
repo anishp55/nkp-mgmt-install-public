@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # NKP version to install
-export NKP_VERSION=2.17.1
+export NKP_VERSION=2.18.0
 #base address for cluster. This is used to generate the IP addresses for the cluster nodes and load balancer
 export BASE_ADDRESS=10.54.81
 # Prism storage container
 export NUTANIX_STORAGE_CONTAINER_NAME=SelfServiceContainer
 # NKP image name
 # Do not change it
-export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-ubuntu-24.04-release-cis-1.34.3-20260504025514.qcow2
+export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-ubuntu-24.04-release-cis-1.35.2-20260626141256.qcow2
 # Prism Element cluster name - Ex: DM3-POC086
 export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=DM3-POC130
 # NKP cluster subnet
