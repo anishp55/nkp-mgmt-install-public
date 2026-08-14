@@ -1,0 +1,30 @@
+apiVersion: dex.mesosphere.io/v1alpha1
+kind: Connector
+metadata:
+  name: nxnt-ad-idp
+  namespace: kommander
+spec:
+  displayName: ntnx-ad
+  enabled: true
+  ldap:
+    bindDN: cn=Administrator,cn=Users,dc=ntnxlab,dc=local
+    bindSecretRef:
+      name: ntnx-ldap-secret
+    groupSearch:
+      baseDN: cn=Users,dc=ntnxlab,dc=local
+      filter: (objectClass=group)
+      nameAttr: cn
+      userMatchers:
+      - groupAttr: member
+        userAttr: DN
+    host: ${BASE_ADDRESS}.6:636
+    insecureSkipVerify: true
+    userSearch:
+      baseDN: cn=Users,dc=ntnxlab,dc=local
+      emailAttr: userPrincipalName
+      filter: (objectClass=person)
+      idAttr: DN
+      nameAttr: cn
+      scope: sub
+      username: sAMAccountName
+  type: ldap

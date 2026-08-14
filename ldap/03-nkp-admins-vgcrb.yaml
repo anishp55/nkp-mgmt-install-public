@@ -1,0 +1,11 @@
+apiVersion: kommander.mesosphere.io/v1beta1
+kind: VirtualGroupClusterRoleBinding
+metadata:
+  name: nkp-admins
+spec:
+  clusterRoleRef:
+    name: kommander-cluster-federated-admin
+  placement:
+    clusterSelector: {}
+  virtualGroupRef:
+    name: nkp-admins
