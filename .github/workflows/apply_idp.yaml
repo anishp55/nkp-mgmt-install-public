@@ -29,6 +29,7 @@ jobs:
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
         export MGMT_HOSTNAME=$( kubectl get kommanderclusters.kommander.mesosphere.io  -n kommander host-cluster -oyaml | yq '.spec.ingress.hostname // .status.ingress.address' )
+        export NAMESPACE=kommander
         cat ./ldap/00-ntnx-ldap-secret.yaml | envsubst | kubectl apply -f -
         cat ./ldap/01-ldap.yaml| envsubst | kubectl apply -f -
         cat ./ldap/02-nkp-admins.yaml | envsubst | kubectl apply -f -
