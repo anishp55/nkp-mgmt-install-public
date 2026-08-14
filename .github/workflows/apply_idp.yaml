@@ -26,6 +26,7 @@ jobs:
     - name: apply ldap
       run: |
         source ${GITHUB_WORKSPACE}/nkp-vars.sh
+        source ${GITHUB_WORKSPACE}/pc-creds.sh
         export PATH=$PATH:~/bin
         export KUBECONFIG=~/kubectl-configs/$CLUSTER_NAME.conf
         export MGMT_HOSTNAME=$( kubectl get kommanderclusters.kommander.mesosphere.io  -n kommander host-cluster -oyaml | yq '.spec.ingress.hostname // .status.ingress.address' )
